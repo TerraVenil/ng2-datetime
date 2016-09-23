@@ -1,11 +1,7 @@
-import {Component} from '@angular/core';
-import {DatePipe} from '@angular/common';
-import {NKDatetime} from '../src/ng2-datetime/ng2-datetime';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'my-app',
-    directives: [NKDatetime],
-    pipes: [DatePipe],
     templateUrl: 'demo/app.component.html'
 })
 export class AppComponent {
@@ -36,7 +32,7 @@ export class AppComponent {
         };
     }
 
-    public getDate(dt): number {
+    getDate(dt): number {
         return dt && dt.getTime();
     }
 }

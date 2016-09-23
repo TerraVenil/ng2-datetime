@@ -2,8 +2,8 @@ import {
     Component, Output, Input, EventEmitter, HostListener, AfterViewInit, OnDestroy,
     SimpleChanges, OnChanges
 } from '@angular/core';
-import {ControlValueAccessor, NgControl} from '@angular/forms';
-import {TimepickerEvent} from './timepicker-event-interface';
+import { ControlValueAccessor, NgControl } from '@angular/forms';
+import { TimepickerEvent } from './timepicker-event-interface';
 
 @Component({
     selector: 'datetime',
@@ -146,7 +146,7 @@ export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestro
 
     private init(): void {
         if (!this.datepicker && this.datepickerOptions !== false) {
-            let options = jQuery.extend({enableOnReadonly: !this.readonly}, this.datepickerOptions);
+            let options = jQuery.extend({ enableOnReadonly: !this.readonly }, this.datepickerOptions);
             this.datepicker = (<any>$('#' + this.idDatePicker)).datepicker(options);
             this.datepicker
                 .on('changeDate', (e: any) => {
@@ -168,11 +168,11 @@ export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestro
         }
 
         if (!this.timepicker && this.timepickerOptions !== false) {
-            let options = jQuery.extend({defaultTime: false}, this.timepickerOptions);
+            let options = jQuery.extend({ defaultTime: false }, this.timepickerOptions);
             this.timepicker = (<any>$('#' + this.idTimePicker)).timepicker(options);
             this.timepicker
                 .on('changeTime.timepicker', (e: TimepickerEvent) => {
-                    let {meridian, hours} = e.time;
+                    let { meridian, hours } = e.time;
 
                     if (meridian) {
                         // has meridian -> convert 12 to 24h
